@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Showcase — Aurigo Design Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:      #07070E;
+      --surface: #11111C;
+      --card:    #18182A;
+      --accent:  #BDFF3C;
+      --text:    #DCDCF5;
+      --muted:   #6060A0;
+      --border:  #1E1E38;
+      --white:   #F7F7F4;
+      --light-surface: #EEEEE9;
+      --light-text: #0A0A12;
+      --light-muted: #8080A8;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      padding: 60px 40px 80px;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      max-width: 960px;
+      margin: 0 auto 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+    }
+    .page-header h1 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 400;
+    }
+    .page-header p {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Logo block ── */
+    .logo-block {
+      max-width: 960px;
+      margin: 0 auto 64px;
+    }
+    .logo-block-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .logo-block-header h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      font-weight: 400;
+    }
+    .logo-block-header .tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    /* ── Panel grid ── */
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .panel {
+      border-radius: 10px;
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel.dark {
+      background: var(--surface);
+      border: 1px solid var(--border);
+    }
+    .panel.light {
+      background: var(--white);
+      border: 1px solid #D8D8D0;
+    }
+    .panel-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: absolute;
+      top: 14px;
+      left: 18px;
+    }
+    .panel.dark  .panel-label { color: var(--muted); }
+    .panel.light .panel-label { color: var(--light-muted); }
+
+    /* ── SVG sizing ── */
+    .logo-wrap { display: flex; align-items: center; justify-content: center; }
+    .logo-wrap svg { max-width: 100%; }
+
+    /* ── Small size strip ── */
+    .sizes-row {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      width: 100%;
+      justify-content: center;
+    }
+    .panel.light .sizes-row { border-top-color: rgba(0,0,0,0.08); }
+    .size-tag {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .panel.dark  .size-tag { color: var(--muted); }
+    .panel.light .size-tag { color: var(--light-muted); }
+
+    /* ── Divider ── */
+    .section-divider {
+      max-width: 960px;
+      margin: 0 auto 48px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── Usage notes ── */
+    .notes {
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .note-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px 26px;
+    }
+    .note-card h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    .note-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .note-card li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-left: 12px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .note-card li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.7rem;
+    }
+
+    /* ── Color swatches ── */
+    .swatches {
+      max-width: 960px;
+      margin: 40px auto 0;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+    }
+    .swatch-dot {
+      width: 18px; height: 18px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .swatch-info { display: flex; flex-direction: column; gap: 2px; }
+    .swatch-name {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--text);
+    }
+    .swatch-hex {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.58rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 700px) {
+      body { padding: 32px 20px 60px; }
+      .panels { grid-template-columns: 1fr; }
+      .notes  { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── PAGE HEADER ── -->
+  <header class="page-header">
+    <h1>Logo Showcase — Aurigo Design Hub</h1>
+    <p>2 logo options · dark + light · Apr 2026</p>
+  </header>
+
+  <!-- ════════════════════════════════════
+       LOGO 1: Mark + Wordmark
+  ════════════════════════════════════ -->
+  <div class="logo-block">
+    <div class="logo-block-header">
+      <h2>Logo 1</h2>
+      <span class="tag">Mark + Wordmark · Horizontal · Recommended for nav and headers</span>
+    </div>
+    <div class="panels">
+
+      <!-- Dark panel -->
+      <div class="panel dark">
+        <span class="panel-label">Dark background</span>
+        <!-- Logo 1 — dark (light text) -->
+        <div class="logo-wrap" style="color: #DCDCF5;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none" width="248" height="70">
+            <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#BDFF3C"/>
+            <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+            <text x="83" y="40" font-family="'Fraunces', Georgia, serif" font-size="32" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-0.5">Aurigo</text>
+            <text x="85" y="57" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="9" font-weight="400" fill="#BDFF3C" letter-spacing="3.5">DESIGN HUB</text>
+          </svg>
+        </div>
+        <!-- Small size -->
+        <div class="sizes-row" style="color: #DCDCF5;">
+          <div>
+            <span class="size-tag">Small</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none" width="148" height="42">
+              <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#BDFF3C"/>
+              <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+              <text x="83" y="40" font-family="'Fraunces', Georgia, serif" font-size="32" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-0.5">Aurigo</text>
+              <text x="85" y="57" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="9" font-weight="400" fill="#BDFF3C" letter-spacing="3.5">DESIGN HUB</text>
+            </svg>
+          </div>
+          <div>
+            <span class="size-tag">Mark only</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" fill="none" width="40" height="40">
+              <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#BDFF3C"/>
+              <circle cx="35" cy="35" r="3.5" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light panel -->
+      <div class="panel light">
+        <span class="panel-label">Light background</span>
+        <!-- Logo 1 — light (dark text) -->
+        <div class="logo-wrap" style="color: #0A0A12;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none" width="248" height="70">
+            <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+            <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#8FB800"/>
+            <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+            <text x="83" y="40" font-family="'Fraunces', Georgia, serif" font-size="32" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-0.5">Aurigo</text>
+            <text x="85" y="57" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="9" font-weight="400" fill="#6A8800" letter-spacing="3.5">DESIGN HUB</text>
+          </svg>
+        </div>
+        <!-- Small size -->
+        <div class="sizes-row" style="color: #0A0A12;">
+          <div>
+            <span class="size-tag">Small</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none" width="148" height="42">
+              <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+              <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#8FB800"/>
+              <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+              <text x="83" y="40" font-family="'Fraunces', Georgia, serif" font-size="32" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-0.5">Aurigo</text>
+              <text x="85" y="57" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="9" font-weight="400" fill="#6A8800" letter-spacing="3.5">DESIGN HUB</text>
+            </svg>
+          </div>
+          <div>
+            <span class="size-tag">Mark only</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70 70" fill="none" width="40" height="40">
+              <path d="M35 5 L63 35 L35 65 L7 35 Z" stroke="currentColor" stroke-width="2" fill="none" stroke-linejoin="round"/>
+              <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#8FB800"/>
+              <circle cx="35" cy="35" r="3.5" fill="currentColor"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════
+       LOGO 2: Typographic
+  ════════════════════════════════════ -->
+  <div class="logo-block">
+    <div class="logo-block-header">
+      <h2>Logo 2</h2>
+      <span class="tag">Typographic only · Centered · Recommended for hero, covers, print</span>
+    </div>
+    <div class="panels">
+
+      <!-- Dark panel -->
+      <div class="panel dark">
+        <span class="panel-label">Dark background</span>
+        <div class="logo-wrap" style="color: #DCDCF5;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" fill="none" width="300" height="94">
+            <text x="150" y="52" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="52" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-1">AURIGO</text>
+            <line x1="28" y1="67" x2="136" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+            <line x1="164" y1="67" x2="272" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+            <path d="M150 61 L155 67 L150 73 L145 67 Z" fill="#BDFF3C"/>
+            <text x="150" y="86" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" font-weight="400" fill="currentColor" letter-spacing="5">DESIGN HUB</text>
+          </svg>
+        </div>
+        <!-- Compact -->
+        <div class="sizes-row" style="color: #DCDCF5;">
+          <div>
+            <span class="size-tag">Compact</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" fill="none" width="180" height="56">
+              <text x="150" y="52" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="52" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-1">AURIGO</text>
+              <line x1="28" y1="67" x2="136" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+              <line x1="164" y1="67" x2="272" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+              <path d="M150 61 L155 67 L150 73 L145 67 Z" fill="#BDFF3C"/>
+              <text x="150" y="86" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" font-weight="400" fill="currentColor" letter-spacing="5">DESIGN HUB</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Light panel -->
+      <div class="panel light">
+        <span class="panel-label">Light background</span>
+        <div class="logo-wrap" style="color: #0A0A12;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" fill="none" width="300" height="94">
+            <text x="150" y="52" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="52" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-1">AURIGO</text>
+            <line x1="28" y1="67" x2="136" y2="67" stroke="#8FB800" stroke-width="0.75"/>
+            <line x1="164" y1="67" x2="272" y2="67" stroke="#8FB800" stroke-width="0.75"/>
+            <path d="M150 61 L155 67 L150 73 L145 67 Z" fill="#8FB800"/>
+            <text x="150" y="86" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" font-weight="400" fill="currentColor" letter-spacing="5">DESIGN HUB</text>
+          </svg>
+        </div>
+        <!-- Compact -->
+        <div class="sizes-row" style="color: #0A0A12;">
+          <div>
+            <span class="size-tag">Compact</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" fill="none" width="180" height="56">
+              <text x="150" y="52" text-anchor="middle" font-family="'Fraunces', Georgia, serif" font-size="52" font-weight="300" font-style="italic" fill="currentColor" letter-spacing="-1">AURIGO</text>
+              <line x1="28" y1="67" x2="136" y2="67" stroke="#8FB800" stroke-width="0.75"/>
+              <line x1="164" y1="67" x2="272" y2="67" stroke="#8FB800" stroke-width="0.75"/>
+              <path d="M150 61 L155 67 L150 73 L145 67 Z" fill="#8FB800"/>
+              <text x="150" y="86" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="10" font-weight="400" fill="currentColor" letter-spacing="5">DESIGN HUB</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ── COLOUR SWATCHES ── -->
+  <div class="logo-block">
+    <div class="logo-block-header">
+      <h2>Palette</h2>
+      <span class="tag">On dark — original · On light — adjusted for contrast</span>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#BDFF3C; border: 1px solid #2a2a1a;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Accent (dark bg)</span>
+          <span class="swatch-hex">#BDFF3C</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#8FB800; border: 1px solid #333;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Accent (light bg)</span>
+          <span class="swatch-hex">#8FB800</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#DCDCF5; border: 1px solid #333;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Wordmark (dark)</span>
+          <span class="swatch-hex">#DCDCF5</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#0A0A12; border: 1px solid #ccc;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Wordmark (light)</span>
+          <span class="swatch-hex">#0A0A12</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── USAGE NOTES ── -->
+  <div class="notes" style="margin-top: 40px;">
+    <div class="note-card">
+      <h3>Logo 1 — Use when</h3>
+      <ul>
+        <li>Navigation bar and page headers</li>
+        <li>Email signatures and document headers</li>
+        <li>Sidebar or app shell branding</li>
+        <li>Favicon: use mark only (inner diamond isolated)</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>Logo 2 — Use when</h3>
+      <ul>
+        <li>Hero sections and landing views</li>
+        <li>Print covers, internal documents</li>
+        <li>Presentation title slides</li>
+        <li>Horizontal space is limited but height is available</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>Dark background rules</h3>
+      <ul>
+        <li>Accent: #BDFF3C (full chartreuse)</li>
+        <li>Wordmark: #DCDCF5 (warm white)</li>
+        <li>Mark frame: same as wordmark</li>
+        <li>Never use on backgrounds lighter than #2A2A40</li>
+      </ul>
+    </div>
+    <div class="note-card">
+      <h3>Light background rules</h3>
+      <ul>
+        <li>Accent: #8FB800 (darkened for contrast)</li>
+        <li>Wordmark: #0A0A12 (near black)</li>
+        <li>Minimum clear space: equal to mark height on all sides</li>
+        <li>Never recolour the accent to grey or black</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

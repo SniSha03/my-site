@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none" role="img" aria-label="Aurigo Design Hub — mark and wordmark" style="color:#07070E">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300&family=IBM+Plex+Mono&display=swap');
+    </style>
+  </defs>
+
+  <!-- ── MARK ── -->
+  <!-- Outer diamond frame -->
+  <path d="M35 5 L63 35 L35 65 L7 35 Z"
+        stroke="currentColor" stroke-width="1.5" fill="none"
+        stroke-linejoin="round"/>
+
+  <!-- Inner diamond — chartreuse accent -->
+  <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#BDFF3C"/>
+
+  <!-- Centre dot -->
+  <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+
+  <!-- ── WORDMARK ── -->
+  <!-- "Aurigo" in Fraunces italic light -->
+  <text
+    x="83" y="40"
+    font-family="'Fraunces', Georgia, serif"
+    font-size="32"
+    font-weight="300"
+    font-style="italic"
+    fill="currentColor"
+    letter-spacing="-0.5"
+  >Aurigo</text>
+
+  <!-- "DESIGN HUB" in IBM Plex Mono — chartreuse -->
+  <text
+    x="85" y="57"
+    font-family="'IBM Plex Mono', 'Courier New', monospace"
+    font-size="9"
+    font-weight="400"
+    fill="#BDFF3C"
+    letter-spacing="3.5"
+  >DESIGN HUB</text>
+
+</svg>

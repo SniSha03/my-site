@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurigo Design Hub — Internal Task Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAV ───────────────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 70" fill="none"
+             height="36" aria-label="Aurigo Design Hub"
+             style="display:block; flex-shrink:0;">
+          <!-- Outer diamond frame — uses currentColor (inherits --text from nav) -->
+          <path d="M35 5 L63 35 L35 65 L7 35 Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          <!-- Inner diamond — site accent #46B2BE -->
+          <path d="M35 21 L49 35 L35 49 L21 35 Z" fill="#46B2BE"/>
+          <!-- Centre dot -->
+          <circle cx="35" cy="35" r="2.8" fill="currentColor"/>
+          <!-- "Aurigo" wordmark -->
+          <text x="83" y="40"
+                font-family="'Fraunces', Georgia, serif"
+                font-size="32" font-weight="300" font-style="italic"
+                fill="currentColor" letter-spacing="-0.5">Aurigo</text>
+          <!-- "DESIGN HUB" sub-label in accent colour -->
+          <text x="85" y="57"
+                font-family="'IBM Plex Mono', 'Courier New', monospace"
+                font-size="9" font-weight="400"
+                fill="#46B2BE" letter-spacing="3.5">DESIGN HUB</text>
+        </svg>
+        <span class="logo-badge">Internal</span>
+      </div>
+      <div class="nav-links">
+        <a href="#deliverables">Today</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-cta" onclick="toggleAiChat()">Ask me anything</button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label">AI-native · Internal Tool · Aurigo Marketing Design</div>
+        <h1 class="hero-headline">
+          Less tracking.<br>
+          <em>More designing.</em>
+        </h1>
+        <p class="hero-sub">
+          One place for every task your team owns — from intake to sign-off.
+          No follow-ups. No manual entry. Just the work.
+        </p>
+        <div class="hero-actions">
+          <a href="#deliverables" class="btn-primary">View Today's Board</a>
+          <a href="#tasks" class="btn-ghost">See all tasks →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">18</span>
+            <span class="stat-label">Active Tasks</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Due Today</span>
+          </div>
+          <div class="stat-div"></div>
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Done This Week</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="dashboard-preview">
+          <div class="preview-bar">
+            <span class="dot red"></span>
+            <span class="dot amber"></span>
+            <span class="dot green"></span>
+            <span class="preview-title">design-hub.aurigo.internal</span>
+          </div>
+          <div class="preview-content">
+            <div class="preview-row high">
+              <span class="preview-dot high"></span>
+              <span class="preview-task">Social Post — Webinar Announcement</span>
+              <span class="preview-status in-progress">In Progress</span>
+            </div>
+            <div class="preview-row high">
+              <span class="preview-dot high"></span>
+              <span class="preview-task">Job Description — Senior Engineer</span>
+              <span class="preview-status in-review">In Review</span>
+            </div>
+            <div class="preview-row high">
+              <span class="preview-dot high"></span>
+              <span class="preview-task">Executive Deck — Q2 ELT Review</span>
+              <span class="preview-status in-progress">In Progress</span>
+            </div>
+            <div class="preview-row med">
+              <span class="preview-dot med"></span>
+              <span class="preview-task">Product Feature One-Pager — Masterworks</span>
+              <span class="preview-status not-started">Not Started</span>
+            </div>
+            <div class="preview-row high">
+              <span class="preview-dot high"></span>
+              <span class="preview-task">Website Content Upload — Primus Page</span>
+              <span class="preview-status in-progress">In Progress</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────────────── -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-label reveal">About the hub</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2>Built for how your team actually works.</h2>
+          <p>
+            Design requests used to travel through Microsoft Forms, land in an
+            Outlook inbox, get manually moved into Monday.com, and then require
+            individual follow-ups to track. Every step was manual overhead.
+          </p>
+          <p>
+            Aurigo Design Hub closes that gap. Requests come in, tasks get
+            assigned by bandwidth and expertise, statuses update, and nothing
+            falls through.
+          </p>
+        </div>
+        <div class="about-features reveal">
+          <div class="feature-item">
+            <div class="feature-icon">01</div>
+            <div class="feature-text">
+              <h4>Intake without the admin</h4>
+              <p>Tasks created from requests, auto-named by format, assigned by expertise and current workload.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">02</div>
+            <div class="feature-text">
+              <h4>Approval chain, tracked</h4>
+              <p>Design → Snigdha review → stakeholder sign-off → print or publish. Every step accounted for.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">03</div>
+            <div class="feature-text">
+              <h4>End-of-day reports, automated</h4>
+              <p>Status summaries generated daily. No status-check messages. No chasing updates.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">04</div>
+            <div class="feature-text">
+              <h4>Team load at a glance</h4>
+              <p>See who's overloaded and who's the right fit before you assign anything.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TODAY'S DELIVERABLES ──────────────────────────────── -->
+  <section class="deliverables" id="deliverables">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">TODAY'S DELIVERABLES — APR 19, 2026</div>
+        <h2>What's due today.</h2>
+      </div>
+      <div class="deliverables-table-wrap reveal">
+        <table class="deliverables-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Task</th>
+              <th>Assignee</th>
+              <th>Department</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="row-num">01</td>
+              <td class="task-name">Social Post — Webinar Announcement</td>
+              <td><span class="avatar">R</span>Raka</td>
+              <td>Internal Marketing</td>
+              <td><span class="badge in-progress">In Progress</span></td>
+            </tr>
+            <tr>
+              <td class="row-num">02</td>
+              <td class="task-name">Job Description — Senior Engineer</td>
+              <td><span class="avatar">S</span>Sayan</td>
+              <td>HR</td>
+              <td><span class="badge in-review">In Review</span></td>
+            </tr>
+            <tr>
+              <td class="row-num">03</td>
+              <td class="task-name">Executive Deck — Q2 ELT Review</td>
+              <td><span class="avatar">Sn</span>Snigdha</td>
+              <td>ELT</td>
+              <td><span class="badge in-progress">In Progress</span></td>
+            </tr>
+            <tr>
+              <td class="row-num">04</td>
+              <td class="task-name">Product Feature One-Pager — Masterworks</td>
+              <td><span class="avatar">D</span>Delvin</td>
+              <td>Product Management</td>
+              <td><span class="badge not-started">Not Started</span></td>
+            </tr>
+            <tr>
+              <td class="row-num">05</td>
+              <td class="task-name">Website Content Upload — Primus Page</td>
+              <td><span class="avatar">Sa</span>Sanjana</td>
+              <td>Sales</td>
+              <td><span class="badge in-progress">In Progress</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note reveal">Five highest-priority tasks due today, pulled from the full task board.</p>
+    </div>
+  </section>
+
+  <!-- ── ALL TASKS (SERVICES) ──────────────────────────────── -->
+  <section class="tasks" id="tasks">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">ALL TASKS</div>
+        <h2>Every task. Every status.</h2>
+        <div class="filter-bar">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="ongoing">Ongoing</button>
+          <button class="filter" data-filter="in-review">In Review</button>
+          <button class="filter" data-filter="on-hold">On Hold</button>
+          <button class="filter" data-filter="completed">Completed</button>
+        </div>
+      </div>
+
+      <div class="tasks-grid">
+
+        <!-- Ongoing -->
+        <div class="task-column reveal" data-status="ongoing">
+          <div class="col-header">
+            <span class="col-dot ongoing"></span>Ongoing<span class="col-count">8</span>
+          </div>
+          <div class="task-cards">
+            <div class="task-card priority-high">
+              <div class="card-priority">High</div>
+              <div class="card-title">Social Post — Webinar Announcement</div>
+              <div class="card-meta">
+                <span class="card-assignee">Raka</span>
+                <span class="card-dept">Internal Marketing</span>
+                <span class="card-due today">Today</span>
+              </div>
+            </div>
+            <div class="task-card priority-high">
+              <div class="card-priority">High</div>
+              <div class="card-title">Executive Deck — Q2 ELT Review</div>
+              <div class="card-meta">
+                <span class="card-assignee">Snigdha</span>
+                <span class="card-dept">ELT</span>
+                <span class="card-due today">Today</span>
+              </div>
+            </div>
+            <div class="task-card priority-high">
+              <div class="card-priority">High</div>
+              <div class="card-title">Website Content Upload — Primus Page</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sanjana</span>
+                <span class="card-dept">Sales</span>
+                <span class="card-due today">Today</span>
+              </div>
+            </div>
+            <div class="task-card priority-medium">
+              <div class="card-priority">Medium</div>
+              <div class="card-title">Pull-up Banner — Masterworks Branding</div>
+              <div class="card-meta">
+                <span class="card-assignee">Raka</span>
+                <span class="card-dept">Internal Marketing</span>
+                <span class="card-due">Tomorrow</span>
+              </div>
+            </div>
+            <div class="task-card priority-medium">
+              <div class="card-priority">Medium</div>
+              <div class="card-title">IT Asset Inventory Slide Deck</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sayan</span>
+                <span class="card-dept">IT</span>
+                <span class="card-due">This Week</span>
+              </div>
+            </div>
+            <div class="task-card priority-medium">
+              <div class="card-priority">Medium</div>
+              <div class="card-title">Engineering Roadmap Visual</div>
+              <div class="card-meta">
+                <span class="card-assignee">Delvin</span>
+                <span class="card-dept">Engineering</span>
+                <span class="card-due">This Week</span>
+              </div>
+            </div>
+            <div class="task-card priority-low">
+              <div class="card-priority">Low</div>
+              <div class="card-title">CI&amp;SO Compliance Brief — Layout</div>
+              <div class="card-meta">
+                <span class="card-assignee">Snigdha</span>
+                <span class="card-dept">CI&amp;SO</span>
+                <span class="card-due">This Week</span>
+              </div>
+            </div>
+            <div class="task-card priority-low">
+              <div class="card-priority">Low</div>
+              <div class="card-title">HR Onboarding Kit — Print</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sayan</span>
+                <span class="card-dept">HR</span>
+                <span class="card-due">Next Week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- In Review -->
+        <div class="task-column reveal" data-status="in-review">
+          <div class="col-header">
+            <span class="col-dot in-review"></span>In Review<span class="col-count">4</span>
+          </div>
+          <div class="task-cards">
+            <div class="task-card priority-high">
+              <div class="card-priority">High</div>
+              <div class="card-title">Job Description — Senior Engineer</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sayan</span>
+                <span class="card-dept">HR</span>
+                <span class="card-due today">Today</span>
+              </div>
+            </div>
+            <div class="task-card priority-high">
+              <div class="card-priority">High</div>
+              <div class="card-title">Product Feature One-Pager — Masterworks</div>
+              <div class="card-meta">
+                <span class="card-assignee">Delvin</span>
+                <span class="card-dept">Product Management</span>
+                <span class="card-due today">Today</span>
+              </div>
+            </div>
+            <div class="task-card priority-medium">
+              <div class="card-priority">Medium</div>
+              <div class="card-title">Sales Enablement Deck — Q2</div>
+              <div class="card-meta">
+                <span class="card-assignee">Raka</span>
+                <span class="card-dept">Sales</span>
+                <span class="card-due">Tomorrow</span>
+              </div>
+            </div>
+            <div class="task-card priority-low">
+              <div class="card-priority">Low</div>
+              <div class="card-title">Engineering Newsletter — Banner</div>
+              <div class="card-meta">
+                <span class="card-assignee">Delvin</span>
+                <span class="card-dept">Engineering</span>
+                <span class="card-due">This Week</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- On Hold -->
+        <div class="task-column reveal" data-status="on-hold">
+          <div class="col-header">
+            <span class="col-dot on-hold"></span>On Hold<span class="col-count">3</span>
+          </div>
+          <div class="task-cards">
+            <div class="task-card hold">
+              <div class="card-title">Brand Refresh — Style Guide</div>
+              <div class="card-hold-reason">Awaiting direction from Richard</div>
+              <div class="card-meta">
+                <span class="card-assignee">Snigdha</span>
+                <span class="card-dept">Internal Marketing</span>
+                <span class="card-due">5 days ago</span>
+              </div>
+            </div>
+            <div class="task-card hold">
+              <div class="card-title">Product Comparison Sheet — Primus vs Essentials</div>
+              <div class="card-hold-reason">Content not finalised</div>
+              <div class="card-meta">
+                <span class="card-assignee">Delvin</span>
+                <span class="card-dept">Product Management</span>
+                <span class="card-due">3 days ago</span>
+              </div>
+            </div>
+            <div class="task-card hold">
+              <div class="card-title">HR Policy Booklet — Print</div>
+              <div class="card-hold-reason">Vendor estimate pending</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sayan</span>
+                <span class="card-dept">HR</span>
+                <span class="card-due">2 days ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Completed -->
+        <div class="task-column reveal" data-status="completed">
+          <div class="col-header">
+            <span class="col-dot completed"></span>Completed<span class="col-count">5</span>
+          </div>
+          <div class="task-cards">
+            <div class="task-card done">
+              <div class="card-title">Event Banner — Aurigo Connect</div>
+              <div class="card-meta">
+                <span class="card-assignee">Raka</span>
+                <span class="card-dept">Internal Marketing</span>
+                <span class="card-due">Yesterday</span>
+              </div>
+            </div>
+            <div class="task-card done">
+              <div class="card-title">LinkedIn Post — Product Launch</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sanjana</span>
+                <span class="card-dept">Internal Marketing</span>
+                <span class="card-due">Yesterday</span>
+              </div>
+            </div>
+            <div class="task-card done">
+              <div class="card-title">Org Chart Update — ELT</div>
+              <div class="card-meta">
+                <span class="card-assignee">Snigdha</span>
+                <span class="card-dept">ELT</span>
+                <span class="card-due">2 days ago</span>
+              </div>
+            </div>
+            <div class="task-card done">
+              <div class="card-title">IT Security Awareness Poster</div>
+              <div class="card-meta">
+                <span class="card-assignee">Sayan</span>
+                <span class="card-dept">IT</span>
+                <span class="card-due">2 days ago</span>
+              </div>
+            </div>
+            <div class="task-card done">
+              <div class="card-title">Proposal Deck — Transportation Client</div>
+              <div class="card-meta">
+                <span class="card-assignee">Delvin</span>
+                <span class="card-dept">Sales</span>
+                <span class="card-due">3 days ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /tasks-grid -->
+    </div>
+  </section>
+
+  <!-- ── TIMELINE / GANTT ───────────────────────────────────── -->
+  <section class="timeline" id="timeline">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">TIMELINE VIEW</div>
+        <h2>Two-week window.</h2>
+        <p class="section-sub">Active tasks across the team, Apr 14 – Apr 30. Colour-coded by status.</p>
+      </div>
+
+      <div class="gantt-legend reveal">
+        <span class="legend-item"><span class="legend-dot ongoing"></span>Ongoing</span>
+        <span class="legend-item"><span class="legend-dot in-review"></span>In Review</span>
+        <span class="legend-item"><span class="legend-dot on-hold"></span>On Hold</span>
+      </div>
+
+      <div class="gantt-wrap reveal">
+        <!-- Date header -->
+        <div class="gantt-dates">
+          <div class="gantt-bars-header">
+            <span>Apr 14</span><span>Apr 17</span><span>Apr 19</span>
+            <span>Apr 21</span><span>Apr 23</span><span>Apr 25</span>
+            <span>Apr 28</span><span>Apr 30</span>
+          </div>
+        </div>
+
+        <!-- Sayan -->
+        <div class="gantt-person">
+          <div class="gantt-person-header">
+            <div class="gantt-avatar">S</div>Sayan
+          </div>
+          <div class="gantt-rows">
+            <div class="gantt-row">
+              <span class="gantt-task-label">Job Desc — Senior Engineer</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar in-review" style="left:0%;width:31.25%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">IT Asset Inventory Deck</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:18.75%;width:37.5%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">HR Onboarding Kit — Print</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:43.75%;width:56.25%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raka -->
+        <div class="gantt-person">
+          <div class="gantt-person-header">
+            <div class="gantt-avatar">R</div>Raka
+          </div>
+          <div class="gantt-rows">
+            <div class="gantt-row">
+              <span class="gantt-task-label">Social Post — Webinar</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:25%;width:6.25%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Sales Enablement Deck Q2</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar in-review" style="left:6.25%;width:31.25%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Pull-up Banner — Masterworks</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:31.25%;width:18.75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Delvin -->
+        <div class="gantt-person">
+          <div class="gantt-person-header">
+            <div class="gantt-avatar">D</div>Delvin
+          </div>
+          <div class="gantt-rows">
+            <div class="gantt-row">
+              <span class="gantt-task-label">Feature One-Pager — Masterworks</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar in-review" style="left:18.75%;width:12.5%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Engineering Newsletter Banner</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar in-review" style="left:12.5%;width:31.25%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Engineering Roadmap Visual</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:31.25%;width:37.5%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Product Comparison — Primus</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar on-hold" style="left:0%;width:100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Snigdha -->
+        <div class="gantt-person">
+          <div class="gantt-person-header">
+            <div class="gantt-avatar">Sn</div>Snigdha
+          </div>
+          <div class="gantt-rows">
+            <div class="gantt-row">
+              <span class="gantt-task-label">Executive Deck — Q2 ELT</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:18.75%;width:12.5%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">CI&amp;SO Compliance Brief</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:25%;width:37.5%"></div>
+              </div>
+            </div>
+            <div class="gantt-row">
+              <span class="gantt-task-label">Brand Refresh — Style Guide</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar on-hold" style="left:0%;width:100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sanjana -->
+        <div class="gantt-person">
+          <div class="gantt-person-header">
+            <div class="gantt-avatar">Sa</div>Sanjana
+          </div>
+          <div class="gantt-rows">
+            <div class="gantt-row">
+              <span class="gantt-task-label">Website Upload — Primus Page</span>
+              <div class="gantt-bar-track">
+                <div class="gantt-bar ongoing" style="left:25%;width:6.25%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /gantt-wrap -->
+    </div>
+  </section>
+
+  <!-- ── DEPT PIE CHART ────────────────────────────────────── -->
+  <section class="depts" id="depts">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">TASKS BY DEPARTMENT</div>
+        <h2>Where the load sits.</h2>
+        <p class="section-sub">Active task split across requesting departments. Completed tasks excluded.</p>
+      </div>
+      <div class="dept-layout">
+        <div class="dept-chart reveal">
+          <svg viewBox="0 0 200 200" class="pie-chart" id="pieChart"></svg>
+          <div class="pie-center">
+            <span class="pie-total">18</span>
+            <span class="pie-label">active</span>
+          </div>
+        </div>
+        <div class="dept-legend reveal">
+          <div class="dept-row">
+            <span class="dept-color" style="background:#BDFF3C"></span>
+            <span class="dept-name">Internal Marketing</span>
+            <span class="dept-count">5</span>
+            <span class="dept-pct">28%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#4B9CF5"></span>
+            <span class="dept-name">HR</span>
+            <span class="dept-count">3</span>
+            <span class="dept-pct">17%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#FF8F3C"></span>
+            <span class="dept-name">Engineering</span>
+            <span class="dept-count">2</span>
+            <span class="dept-pct">11%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#C84BF5"></span>
+            <span class="dept-name">Product Management</span>
+            <span class="dept-count">2</span>
+            <span class="dept-pct">11%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#F54B88"></span>
+            <span class="dept-name">Sales</span>
+            <span class="dept-count">2</span>
+            <span class="dept-pct">11%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#4BF5C8"></span>
+            <span class="dept-name">ELT</span>
+            <span class="dept-count">1</span>
+            <span class="dept-pct">6%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#F5D44B"></span>
+            <span class="dept-name">IT</span>
+            <span class="dept-count">1</span>
+            <span class="dept-pct">6%</span>
+          </div>
+          <div class="dept-row">
+            <span class="dept-color" style="background:#4BF568"></span>
+            <span class="dept-name">CI&amp;SO</span>
+            <span class="dept-count">1</span>
+            <span class="dept-pct">6%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────── -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-label reveal">What the team says</div>
+      <div class="testimonials-grid">
+        <div class="testimonial reveal">
+          <blockquote>
+            "The approval chain visibility alone has cut back-and-forth on every
+            asset review. I always know what's waiting on me — without having to ask."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">R</div>
+            <div>
+              <div class="author-name">Richard</div>
+              <div class="author-role">Final Approver, Marketing Assets</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <blockquote>
+            "Event collateral used to mean a lot of back-and-forth on timelines.
+            Now I can see exactly where each banner or pull-up is — without pinging anyone."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div>
+              <div class="author-name">Allie Smith</div>
+              <div class="author-role">Events and Field Marketing Manager</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial reveal">
+          <blockquote>
+            "Website updates used to pass through three channels before anything
+            moved. Having navigation decisions and content uploads in one view saves time."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">Sh</div>
+            <div>
+              <div class="author-name">Shashi</div>
+              <div class="author-role">Website Direction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA SECTION ───────────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <h2>Start tracking less.<br><em>Designing more.</em></h2>
+        <p>All your tasks. All your team. One place.</p>
+        <button class="btn-primary large" onclick="toggleAiChat()">Ask me anything</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT FORM ───────────────────────────────────────── -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Raise an issue</div>
+          <h2>Something off?</h2>
+          <p>
+            Use this form to flag a bug, request a change to the dashboard,
+            or report a task that's miscategorised or missing.
+          </p>
+          <div class="contact-detail">
+            <span class="contact-label">Direct contact</span>
+            <a href="mailto:snigdha@aurigo.com" class="contact-link">Contact Snigdha</a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="formName">Name</label>
+            <input type="text" id="formName" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="formEmail">Email</label>
+            <input type="email" id="formEmail" placeholder="your@aurigo.com" required>
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Issue or Request</label>
+            <textarea id="formMessage" rows="5" placeholder="Describe the issue or change request..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send</button>
+          <div class="form-success" id="formSuccess">Sent. Snigdha will follow up.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="logo-mark">◈</span> Aurigo Design Hub — Internal Tool
+      </div>
+      <div class="footer-center">
+        Today: Apr 19, 2026 &nbsp;·&nbsp; Active Tasks: 18 &nbsp;·&nbsp; Completed This Week: 5
+      </div>
+      <div class="footer-right">
+        <a href="#contact">Raise an issue</a>
+        <a href="#contact">Contact Snigdha</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── WIDGET SYSTEM ───────────────────────────────────── -->
+
+  <!-- Launcher buttons (visible when no widget is open) -->
+  <div class="widget-launchers" id="widgetLaunchers">
+    <button class="launcher-btn launcher-proposal" onclick="openProposal()">
+      <span class="launcher-icon">◇</span>
+      <span class="launcher-label">Get Proposal</span>
+    </button>
+    <button class="launcher-btn launcher-chat" onclick="openChat()">
+      <span class="launcher-icon">◈</span>
+      <span class="launcher-label">Ask me anything</span>
+    </button>
+  </div>
+
+  <!-- Widget 1: Q&A Chat -->
+  <div class="widget-panel" id="chatWidget" role="dialog" aria-label="AI Assistant">
+    <div class="ai-panel-header">
+      <span class="ai-panel-title"><span class="logo-mark">◈</span> Ask me anything</span>
+      <button class="ai-panel-close" onclick="closeChat()" aria-label="Close chat">×</button>
+    </div>
+    <div class="ai-panel-messages" id="aiPanelMessages">
+      <div class="chat-msg bot">
+        <div class="chat-bubble">Hi, I'm Snigdha's assistant. What would you like to know about the Design Hub?</div>
+      </div>
+    </div>
+    <div class="ai-panel-footer">
+      <input
+        type="text"
+        id="aiPanelInput"
+        class="ai-panel-input"
+        placeholder="Ask me anything..."
+        onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendAiMessage(); }"
+        autocomplete="off"
+      >
+      <button class="ai-panel-send" id="aiPanelSend" onclick="sendAiMessage()" aria-label="Send">→</button>
+    </div>
+  </div>
+
+  <!-- Widget 2: Proposal Intake -->
+  <div class="widget-panel proposal-widget" id="proposalWidget" role="dialog" aria-label="Get a Proposal">
+    <div class="ai-panel-header proposal-header">
+      <span class="ai-panel-title proposal-title">◇ Get a Proposal</span>
+      <button class="ai-panel-close" onclick="closeProposal()" aria-label="Close">×</button>
+    </div>
+    <div class="intake-progress" id="intakeProgress">
+      <div class="intake-bar-track">
+        <div class="intake-bar-fill" id="intakeBarFill"></div>
+      </div>
+      <span class="intake-step-label" id="intakeStepLabel">Step 1 of 6</span>
+    </div>
+    <div class="ai-panel-messages" id="intakeMessages"></div>
+    <div class="ai-panel-footer">
+      <input
+        type="text"
+        id="intakeInput"
+        class="ai-panel-input"
+        placeholder="Your answer..."
+        onkeydown="if(event.key==='Enter' && !event.shiftKey){ event.preventDefault(); sendIntakeMessage(); }"
+        autocomplete="off"
+      >
+      <button class="ai-panel-send" id="intakeSend" onclick="sendIntakeMessage()" aria-label="Send">→</button>
+    </div>
+  </div>
+
+
+  <!-- ── SCRIPTS ───────────────────────────────────────────── -->
+  <script>
+    /* --- Nav scroll --- */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    /* --- Scroll reveal --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          e.target.style.transitionDelay = (i * 0.06) + 's';
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* --- Task filters --- */
+    const filters = document.querySelectorAll('.filter');
+    const columns = document.querySelectorAll('.task-column');
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        columns.forEach(col => {
+          col.classList.toggle('hidden', f !== 'all' && col.dataset.status !== f);
+        });
+      });
+    });
+
+    /* --- SVG Pie chart --- */
+    (function drawPie() {
+      const data = [
+        { pct: 28, color: '#BDFF3C' },
+        { pct: 17, color: '#4B9CF5' },
+        { pct: 11, color: '#FF8F3C' },
+        { pct: 11, color: '#C84BF5' },
+        { pct: 11, color: '#F54B88' },
+        { pct:  6, color: '#4BF5C8' },
+        { pct:  6, color: '#F5D44B' },
+        { pct:  6, color: '#4BF568' },
+        { pct:  4, color: '#2A2A4A' }, /* gap fill */
+      ];
+      const cx = 100, cy = 100, r = 80, ir = 52;
+      const svg = document.getElementById('pieChart');
+      let angle = -90; /* start top */
+      const TAU = Math.PI * 2;
+
+      data.forEach(d => {
+        const sweep = (d.pct / 100) * TAU;
+        const x1 = cx + r * Math.cos((angle * Math.PI) / 180);
+        const y1 = cy + r * Math.sin((angle * Math.PI) / 180);
+        const endDeg = angle + (d.pct / 100) * 360;
+        const x2 = cx + r * Math.cos((endDeg * Math.PI) / 180);
+        const y2 = cy + r * Math.sin((endDeg * Math.PI) / 180);
+        const xi1 = cx + ir * Math.cos((angle * Math.PI) / 180);
+        const yi1 = cy + ir * Math.sin((angle * Math.PI) / 180);
+        const xi2 = cx + ir * Math.cos((endDeg * Math.PI) / 180);
+        const yi2 = cy + ir * Math.sin((endDeg * Math.PI) / 180);
+        const large = d.pct > 50 ? 1 : 0;
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', `
+          M ${xi1} ${yi1}
+          L ${x1} ${y1}
+          A ${r} ${r} 0 ${large} 1 ${x2} ${y2}
+          L ${xi2} ${yi2}
+          A ${ir} ${ir} 0 ${large} 0 ${xi1} ${yi1}
+          Z
+        `);
+        path.setAttribute('fill', d.color);
+        path.setAttribute('stroke', '#07070E');
+        path.setAttribute('stroke-width', '2');
+        path.style.transition = 'opacity 0.2s';
+        path.addEventListener('mouseenter', () => path.style.opacity = '0.8');
+        path.addEventListener('mouseleave', () => path.style.opacity = '1');
+        svg.appendChild(path);
+        angle = endDeg;
+      });
+    })();
+
+    /* --- Shared utilities --- */
+    function escapeHtml(str) {
+      const d = document.createElement('div');
+      d.appendChild(document.createTextNode(str));
+      return d.innerHTML;
+    }
+
+    function appendTyping(containerId, typingId) {
+      const msgs = document.getElementById(containerId);
+      const t = document.createElement('div');
+      t.className = 'chat-msg bot';
+      t.id = typingId;
+      t.innerHTML = '<div class="typing-bubble"><span></span><span></span><span></span></div>';
+      msgs.appendChild(t);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function appendBot(containerId, text) {
+      const msgs = document.getElementById(containerId);
+      const d = document.createElement('div');
+      d.className = 'chat-msg bot';
+      d.innerHTML = `<div class="chat-bubble">${escapeHtml(text)}</div>`;
+      msgs.appendChild(d);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    /* --- Widget 1: Q&A Chat --- */
+    let aiHistory = [];
+    let aiWaiting = false;
+
+    function openChat() {
+      document.getElementById('widgetLaunchers').classList.add('hidden');
+      document.getElementById('chatWidget').classList.add('open');
+      setTimeout(() => document.getElementById('aiPanelInput').focus(), 50);
+    }
+
+    function closeChat() {
+      document.getElementById('chatWidget').classList.remove('open');
+      document.getElementById('widgetLaunchers').classList.remove('hidden');
+    }
+
+    /* Backward-compat: nav button and CTA call toggleAiChat() */
+    function toggleAiChat() {
+      document.getElementById('chatWidget').classList.contains('open') ? closeChat() : openChat();
+    }
+
+    async function sendAiMessage() {
+      if (aiWaiting) return;
+      const input = document.getElementById('aiPanelInput');
+      const send  = document.getElementById('aiPanelSend');
+      const msgs  = document.getElementById('aiPanelMessages');
+      const val   = input.value.trim();
+      if (!val) return;
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-msg user';
+      userDiv.innerHTML = `<div class="chat-bubble">${escapeHtml(val)}</div>`;
+      msgs.appendChild(userDiv);
+      input.value = '';
+      msgs.scrollTop = msgs.scrollHeight;
+
+      aiHistory.push({ role: 'user', content: val });
+      aiWaiting = true;
+      input.disabled = true;
+      send.disabled  = true;
+
+      appendTyping('aiPanelMessages', 'aiTyping');
+
+      try {
+        const res  = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: aiHistory })
+        });
+        const data  = await res.json();
+        const reply = data.reply || data.error || 'Something went wrong — please try again.';
+        document.getElementById('aiTyping')?.remove();
+        aiHistory.push({ role: 'assistant', content: reply });
+        appendBot('aiPanelMessages', reply);
+      } catch (err) {
+        document.getElementById('aiTyping')?.remove();
+        appendBot('aiPanelMessages', 'Something went wrong — please try again.');
+      }
+
+      aiWaiting      = false;
+      input.disabled = false;
+      send.disabled  = false;
+      msgs.scrollTop = msgs.scrollHeight;
+      input.focus();
+    }
+
+    /* --- Widget 2: Proposal Intake --- */
+    let intakeHistory = [];
+    let intakeWaiting = false;
+    let intakeStarted = false;
+
+    function openProposal() {
+      document.getElementById('widgetLaunchers').classList.add('hidden');
+      document.getElementById('proposalWidget').classList.add('open');
+      if (!intakeStarted) {
+        intakeStarted = true;
+        startIntake();
+      } else {
+        setTimeout(() => document.getElementById('intakeInput').focus(), 50);
+      }
+    }
+
+    function closeProposal() {
+      document.getElementById('proposalWidget').classList.remove('open');
+      document.getElementById('widgetLaunchers').classList.remove('hidden');
+    }
+
+    function setIntakeStep(step) {
+      document.getElementById('intakeStepLabel').textContent = `Step ${step} of 6`;
+      document.getElementById('intakeBarFill').style.width = `${((step - 1) / 6) * 100}%`;
+    }
+
+    async function startIntake() {
+      /* Trigger message goes into history but is not shown as a user bubble */
+      intakeHistory.push({ role: 'user', content: "I'd like to get a proposal." });
+
+      intakeWaiting = true;
+      document.getElementById('intakeInput').disabled = true;
+      document.getElementById('intakeSend').disabled  = true;
+      appendTyping('intakeMessages', 'intakeTyping');
+
+      try {
+        const res  = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: intakeHistory })
+        });
+        const data  = await res.json();
+        const reply = data.reply || 'Something went wrong — please try again.';
+        document.getElementById('intakeTyping')?.remove();
+        intakeHistory.push({ role: 'assistant', content: reply });
+        appendBot('intakeMessages', reply);
+        if (data.intake_step) setIntakeStep(data.intake_step);
+      } catch (err) {
+        document.getElementById('intakeTyping')?.remove();
+        appendBot('intakeMessages', 'Something went wrong — please try again.');
+      }
+
+      intakeWaiting = false;
+      document.getElementById('intakeInput').disabled = false;
+      document.getElementById('intakeSend').disabled  = false;
+      document.getElementById('intakeInput').focus();
+    }
+
+    async function sendIntakeMessage() {
+      if (intakeWaiting) return;
+      const input = document.getElementById('intakeInput');
+      const send  = document.getElementById('intakeSend');
+      const msgs  = document.getElementById('intakeMessages');
+      const val   = input.value.trim();
+      if (!val) return;
+
+      const userDiv = document.createElement('div');
+      userDiv.className = 'chat-msg user';
+      userDiv.innerHTML = `<div class="chat-bubble">${escapeHtml(val)}</div>`;
+      msgs.appendChild(userDiv);
+      input.value = '';
+      msgs.scrollTop = msgs.scrollHeight;
+
+      intakeHistory.push({ role: 'user', content: val });
+      intakeWaiting  = true;
+      input.disabled = true;
+      send.disabled  = true;
+
+      appendTyping('intakeMessages', 'intakeTyping');
+
+      try {
+        const res  = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: intakeHistory })
+        });
+        const data  = await res.json();
+        const reply = data.reply || 'Something went wrong — please try again.';
+        document.getElementById('intakeTyping')?.remove();
+        intakeHistory.push({ role: 'assistant', content: reply });
+        appendBot('intakeMessages', reply);
+
+        if (data.intake_step) setIntakeStep(data.intake_step);
+
+        if (data.intake_complete) {
+          document.getElementById('intakeBarFill').style.width = '100%';
+          document.getElementById('intakeStepLabel').textContent = 'Complete';
+          /* Disable input permanently — conversation is done */
+          input.disabled = true;
+          send.disabled  = true;
+          /* Fire proposal agent — fire-and-forget */
+          fetch('/api/generate-proposal', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ intakeData: data.intake_data, conversation: intakeHistory })
+          }).catch(() => {});
+          return;
+        }
+      } catch (err) {
+        document.getElementById('intakeTyping')?.remove();
+        appendBot('intakeMessages', 'Something went wrong — please try again.');
+      }
+
+      intakeWaiting  = false;
+      input.disabled = false;
+      send.disabled  = false;
+      msgs.scrollTop = msgs.scrollHeight;
+      input.focus();
+    }
+
+    /* --- Contact form --- */
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const success = document.getElementById('formSuccess');
+      success.classList.add('visible');
+      e.target.reset();
+      setTimeout(() => success.classList.remove('visible'), 5000);
+    }
+  </script>
+
+</body>
+</html>

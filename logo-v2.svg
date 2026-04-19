@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" fill="none" role="img" aria-label="Aurigo Design Hub — typographic logo" style="color:#07070E">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,300&family=IBM+Plex+Mono&display=swap');
+    </style>
+  </defs>
+
+  <!-- ── "AURIGO" main logotype ── -->
+  <text
+    x="150" y="52"
+    text-anchor="middle"
+    font-family="'Fraunces', Georgia, serif"
+    font-size="52"
+    font-weight="300"
+    font-style="italic"
+    fill="currentColor"
+    letter-spacing="-1"
+  >AURIGO</text>
+
+  <!-- ── Divider: two rules + centre diamond ── -->
+  <!-- Left rule -->
+  <line x1="28" y1="67" x2="136" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+  <!-- Right rule -->
+  <line x1="164" y1="67" x2="272" y2="67" stroke="#BDFF3C" stroke-width="0.75"/>
+  <!-- Centre diamond -->
+  <path d="M150 61 L155 67 L150 73 L145 67 Z" fill="#BDFF3C"/>
+
+  <!-- ── "DESIGN HUB" subtitle ── -->
+  <text
+    x="150" y="86"
+    text-anchor="middle"
+    font-family="'IBM Plex Mono', 'Courier New', monospace"
+    font-size="10"
+    font-weight="400"
+    fill="currentColor"
+    letter-spacing="5"
+  >DESIGN HUB</text>
+
+</svg>
