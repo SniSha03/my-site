@@ -1148,12 +1148,24 @@
           /* Disable input permanently — conversation is done */
           input.disabled = true;
           send.disabled  = true;
-          /* Fire proposal agent — fire-and-forget */
+          /* Fire proposal agent — await result and surface status */
+          appendBot('intakeMessages', 'Generating your proposal — this may take a moment.');
           fetch('/api/generate-proposal', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ intakeData: data.intake_data, conversation: intakeHistory })
-          }).catch(() => {});
+          })
+            .then(r => r.ok ? r.json() : Promise.reject(r.status))
+            .then(result => {
+              if (result.results?.email) {
+                appendBot('intakeMessages', 'Your proposal has been sent — check your inbox.');
+              } else {
+                appendBot('intakeMessages', 'Your proposal was prepared, but the email could not be delivered. Please reach out directly to snigdha@aurigo.com.');
+              }
+            })
+            .catch(() => {
+              appendBot('intakeMessages', 'Something went wrong preparing your proposal. Please reach out directly to snigdha@aurigo.com.');
+            });
           return;
         }
       } catch (err) {
