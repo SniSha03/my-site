@@ -466,11 +466,8 @@ Write 4-5 sections:
 
 - Write the proposal in Snigdha's voice -- direct, personal, specific to their situation
 - Score the lead (HIGH / MEDIUM / LOW) using the triage rules above
-- Call render_proposal_pdf with the proposal sections
-- Call send_email with a short, warm email and the PDF attached
-- If the store_lead tool is available, call it with all lead data and the score
-- Call alert_owner with: company name, contact name, challenge summary, score, and one sentence on why
-- You decide the order. Call multiple tools at once when they are independent.`;
+- STEP 1 — Call render_proposal_pdf first. Do not call send_email until render_proposal_pdf has completed successfully. The email attachment depends on the PDF being ready.
+- STEP 2 — Once render_proposal_pdf succeeds, call send_email (with attach_pdf: true), store_lead (if available), and alert_owner together in the same turn — those three are independent of each other.`;
 
 // ── Main handler ────────────────────────────────────────────────────────────
 // Works as both Express route (local dev) and Vercel serverless function
